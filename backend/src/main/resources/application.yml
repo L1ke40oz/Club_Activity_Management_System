@@ -1,0 +1,24 @@
+server:
+  port: 8080 # 后端服务运行的端口
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库连接信息，通过环境变量注入，冒号后为本地默认值
+    # allowPublicKeyRetrieval=true 用于兼容 MySQL 8 的 caching_sha2_password 认证
+    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:campus_club_db}?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+# 大模型 API 配置（兼容 OpenAI 格式，支持 DeepSeek / 通义千问 / OpenAI 等）
+# 通过环境变量注入 API Key，切勿将真实密钥提交到仓库
+# 获取 DeepSeek API Key: https://platform.deepseek.com/api_keys
+ai:
+  api-url: ${AI_API_URL:https://api.deepseek.com/v1/chat/completions}
+  api-key: ${AI_API_KEY:your-api-key-here}
+  model: ${AI_MODEL:deepseek-chat}

@@ -1,0 +1,41 @@
+# ===== 环境变量 / 凭证 =====
+.env
+*.env.local
+
+# ===== 前端 (Node / Vite) =====
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== 后端 (Maven / Spring Boot) =====
+target/
+backend/target/
+HELP.md
+.mvn/wrapper/maven-wrapper.jar
+
+# ===== IDE / 编辑器 =====
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+*.sw?
+
+# ===== 系统 =====
+.DS_Store
+Thumbs.db
+
+# ===== 日志 / 临时文件 =====
+*.log
+logs/
+cookies*.txt
